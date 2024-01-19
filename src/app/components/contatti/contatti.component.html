@@ -1,0 +1,45 @@
+<div class="banner1" id="banner1">
+		<div class="icon"><i class="fa-solid fa-box"></i></div>
+		<hello name="{{ name }}"></hello>
+		<div class="socials" id="menu">
+		  <a href="/home" (click)="navigaSezioniPrincipali()">Home</a>
+		  <a href="/sezionisecondarie" (click)="navigaSezioniSecondarie()">Chi siamo</a>
+		  <a href="/sezioniextra" (click)="navigaSezioniExtra()">Servizi</a>
+		  <a href="/sezioniprincipali" (click)="navigaSezioniExtra()">Sezione news</a>
+		  <a href="/contatti" (click)="contatti()">Contatti</a>
+		</div>
+		<div class="toggle-menu" (click)="toggleMenu()">☰</div>
+	  </div>
+
+	  <body>
+		<div class="contact-banner">
+		  <div class="contact-info">
+			<h2>Contattaci</h2>
+				<p class="contact-text">Email: <a href="mailto:redazione@ainews.it" class="contact-link">redazione@ainews.it</a></p>
+				<p class="contact-text">Indirizzo Milano: <a href="https://maps.google.com/?q=Via Santa Radegonda, 16 – 20121" target="_blank" class="contact-link">Via Santa Radegonda, 16 – 20121</a></p>
+				<p class="contact-text">Indirizzo Roma: <a href="https://maps.google.com/?q=Piazza Madama, 7 – 00186" target="_blank" class="contact-link">Piazza Madama, 7 – 00186</a></p>
+    	 </div>
+		  
+		  <div class="social-icons">
+			<a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+			<a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+			<a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+		  </div>
+		</div>
+
+		<div class="newsletter">
+			<h2>Iscriviti alla nostra newsletter</h2>
+			<form>
+			  <label for="email">Indirizzo Email:</label>
+			  <input type="email" id="email" name="email" required>
+			  <button type="button" (click)="handleIscriviti()">Iscriviti</button>
+			</form>
+		  </div>
+		  
+
+	  </body>
+	  
+
+<app-footer></app-footer>
+
+

@@ -1,0 +1,260 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; 
+  margin-top: 30px;
+}
+
+.menu-button{
+  margin-top: 8px;
+}
+
+button.name-button2{
+  padding: 3px;
+  margin: 1px;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+button.object-button{
+  padding: 1px;
+  margin: 5px;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.label2{
+  display: flex;
+  font-size: 1rem;
+}
+
+.label3{
+  display: flex;
+  font-size: 0.6rem;
+  margin-left: 180px;
+  margin: 9px;
+}
+
+label {
+  display: inline-block;
+  margin-right: 37px;
+  margin-left: 1.5%;
+  font-size: 2rem;
+}
+
+.content{
+  margin-top: 0px;
+}
+
+input[type="checkbox"] {
+  margin: 5px;
+  padding: 0;
+}
+
+.banner3{
+  background-color: lightblue;
+  width: 15%;
+  border-radius: 10px;
+  margin: 50px auto 0;
+  margin-bottom: 50px;
+  border: 4px solid black;
+}
+
+.button2 {
+  display: block;
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  margin: 50px auto 0;
+  margin-bottom: 50px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+button:hover{
+  background-color: #2980b9;
+}
+
+
+.checkbox3 {
+  margin-left: 50%;
+  margin-top: -8%;
+  width: 10px; height: 10px;
+  }
+
+.checkbox-container2 {
+    position: flex;
+    top: calc(50% - 318.5px); 
+    left: 0; 
+    z-index: 999; 
+  }
+
+.cc1 , .cc2{
+  display: grid;
+  margin: 1%;
+  margin-left: 2.5%;
+}
+
+.cc1 label, .cc2 label{
+  margin-left: 0;
+}
+
+.btn4{
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: black;
+}
+
+.btn4:hover{
+background-color: aliceblue;
+}
+
+.name-container{
+  display: flex;
+  
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+h2{
+  margin-top: 25px;
+  font-family: fantasy;
+  text-align: center;
+}
+
+h5{
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: fantasy;
+}
+
+p{
+  font-size: 1.3rem;
+  font-family: Lato sans-serif;
+  line-height: 2;
+}
+
+.trenta{
+  padding: 15px; /* Aggiunto padding per spaziatura interna */
+  background-color: #e0e0e0; /* Colore di sfondo grigio chiaro */
+  border-radius: 8px; /* Bordi arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+.trenta-2{
+  padding: 15px; /* Aggiunto padding per spaziatura interna */
+  background-color: #e0e0e0; /* Colore di sfondo grigio chiaro */
+  border-radius: 8px; /* Bordi arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  margin-top: 30px;
+}
+
+.content-container {
+  background-color: #f0f0f0; /* Colore di sfondo */
+  padding: 20px; /* Aggiunto padding per spaziatura interna */
+  border-left: 8px solid #3498db; /* Linea doppia a sinistra con colore azzurro */
+  border-right: 8px solid #3498db; /* Linea doppia a destra con colore azzurro */
+}
+
+.label2{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button{
+  font-family: 'Courier New', Courier, monospace;
+}
+/*responsive */
+
+@media only screen and(min-width: 767px){
+  
+  .checkbox-container2 {
+    position: fixed;
+    top: calc(50% - 162.5px); 
+    left: 0; 
+    z-index: 999; 
+  }
+
+  .banner3{
+    display: inline-block;
+    border: none;
+    margin-left: 42%;
+    width: 25%;
+    align-items: center;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 1300px){
+
+  .checkbox-container2 {
+    position: inherit;
+    top: calc(50% - 254.5px); 
+    left: 0; 
+    z-index: 999; 
+  }
+
+  .button-container {
+    justify-content: space-between; 
+    max-width: 100%; 
+  }
+
+  .banner3{
+    border: none;
+    margin-left: 42%;
+    width: 25%;
+    align-items: center;
+  }
+
+  .checkbox2 {
+    margin-left: 90%;
+    margin-top: -20%;
+    }
+    
+    .checkbox3 {
+      margin-left: 90%;
+      margin-top: -17%;
+      width: 10px; height: 10px;
+      }
+
+}
+
+
+@media only screen and (min-width: 1301px) and (max-width: 1860px){
+
+ 
+  .banner3{
+    border: none;
+    margin-left: 42%;
+    align-items: center;
+    }
+  
+  .checkbox2 {
+    margin-left: 70%;
+    margin-top: -18%;
+    }
+    
+    .checkbox3 {
+      margin-left: 50%;
+      margin-top: -10%;
+      width: 10px; height: 10px;
+      }
+
+      
+    
+}

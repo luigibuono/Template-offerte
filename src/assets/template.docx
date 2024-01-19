@@ -1,0 +1,5 @@
+{{#each .}}
+    {{id}}
+    {{title}}
+    {{contenutoCompleto}}
+{{/each}}

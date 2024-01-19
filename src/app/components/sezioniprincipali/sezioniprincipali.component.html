@@ -1,0 +1,52 @@
+<body>
+	<div class="banner1" id="banner1">
+		<div class="icon"><i class="fa-solid fa-box"></i></div>
+		<hello name="{{ name }}"></hello>
+		<div class="socials" id="menu">
+		  <a href="/home" (click)="navigaSezioniPrincipali()">Home</a>
+		  <a href="/sezionisecondarie" (click)="navigaSezioniSecondarie()">Chi siamo</a>
+		  <a href="/sezioniextra" (click)="navigaSezioniExtra()">Servizi</a>
+		  <a href="/sezioniprincipali" (click)="navigaSezioniExtra()">Sezione news</a>
+		  <a href="/contatti" (click)="contatti()">Contatti</a>
+		</div>
+		<div class="toggle-menu" (click)="toggleMenu()">☰</div>
+	  </div>
+
+
+	
+<div class="search-bar">
+	<input type="text" placeholder="Cerca sezioni..." [(ngModel)]="searchTerm" />
+	<button (click)="search()">Cerca</button>
+  </div>
+  
+  <div class="box-container">
+	<div *ngIf="sezioneTrovata; else sezioniList" class="box">
+	  <div class="banner2">
+		<div class="box1">
+		  <h2>{{ sezioneTrovata.id }}</h2>
+		  <p>{{ sezioneTrovata.title }}</p>
+		</div>
+		<p>{{ sezioneTrovata.content }}</p>
+		<p>{{ sezioneTrovata.contenutoCompleto }}</p>
+		<p>{{ sezioneTrovata.contenuto }}</p>
+	  </div>
+	</div>
+	<ng-template #sezioniList>
+	  <div *ngFor="let sezione of dati.slice(0,35); let last = last" class="box" [ngClass]="{'hide-last-box': last}">
+		<div class="banner2">
+		  <div class="box1">
+			<h2>{{ sezione.id }}</h2>
+			<p>{{ sezione.title }}</p>
+		  </div>
+		  <p>{{ sezione.content }}</p>
+		  <p>{{ sezione.contenutoCompleto }}</p>
+		  <p>{{ sezione.contenuto }}</p>
+		</div>
+	  </div>
+	</ng-template>
+  </div>
+
+  
+
+<app-footer></app-footer>
+

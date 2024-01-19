@@ -1,0 +1,44 @@
+<body>
+	<!-- Nel tuo file HTML (home.component.html) -->
+	<div class="banner1" id="banner1">
+		<div class="icon"></div>
+		<hello name="{{ name }}"></hello>
+		<div class="socials" id="menu">
+		  <a href="/home" (click)="navigaSezioniPrincipali()">Home</a>
+		  <a href="/sezionisecondarie" (click)="navigaSezioniSecondarie()">Chi siamo</a>
+		  <a href="/sezioniextra" (click)="navigaSezioniExtra()">Servizi</a>
+		  <a href="/sezioniprincipali" (click)="navigaSezioniExtra()">Sezione news</a>
+		  <a href="/contatti" (click)="contatti()">Contatti</a>
+		</div>
+		<div class="toggle-menu" (click)="toggleMenu()">☰</div>
+	  </div>
+	  
+	
+	<div class="banner5">
+		<h3>Create Template</h3>
+		<div class="circle">
+			<i class="fa-solid fa-pencil"></i>
+		  </div>
+		<h3 class="second-h3">Generate Documents</h3>
+		<div class="circle2">
+		  <i class="fa-solid fa-computer"></i>
+		</div>
+	</div>
+	
+	<div class="banner4">
+		<h2>Word Automated Document Generation</h2>
+	</div>
+	
+	  <app-select></app-select>
+	  
+	
+		  <mat-grid-list cols="2" rowHeight="4:1" gutterSize="16px">
+			<mat-grid-tile style="background: lightblue; color:black;"><b>Offerta 1</b></mat-grid-tile>
+			<mat-grid-tile><b>Offerta 2</b></mat-grid-tile>
+			<mat-grid-tile><b>Offerta 3</b></mat-grid-tile>
+			<mat-grid-tile style="background: lightblue; color:black;"><b>Offerta 4</b></mat-grid-tile>
+		  </mat-grid-list>
+	
+	
+		  <app-footer></app-footer>
+	</body>

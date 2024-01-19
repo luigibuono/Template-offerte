@@ -1,0 +1,30 @@
+<body>
+	<div class="banner1" id="banner1">
+		<div class="icon"><i class="fa-solid fa-box"></i></div>
+		<hello name="{{ name }}"></hello>
+		<div class="socials" id="menu">
+		  <a href="/home" (click)="navigaSezioniPrincipali()">Home</a>
+		  <a href="/sezionisecondarie" (click)="navigaSezioniSecondarie()">Chi siamo</a>
+		  <a href="/sezioniextra" (click)="navigaSezioniExtra()">Servizi</a>
+		  <a href="/sezioniprincipali" (click)="navigaSezioniExtra()">Sezione news</a>
+		  <a href="/contatti" (click)="contatti()">Contatti</a>
+		</div>
+		<div class="toggle-menu" (click)="toggleMenu()">☰</div>
+	  </div>
+
+
+	  <mat-grid-list cols="2" rowHeight="4:1" gutterSize="16px">
+		<mat-grid-tile style="background: lightblue; color:black;"><b>Servizio 1</b></mat-grid-tile>
+		<mat-grid-tile><b>Servizio 2</b></mat-grid-tile>
+		<mat-grid-tile><b>Servizio 3</b></mat-grid-tile>
+		<mat-grid-tile style="background: lightblue; color:black;"><b>Servizio 4</b></mat-grid-tile>
+		<mat-grid-tile style="background: lightblue; color:black;"><b>Servizio 5</b></mat-grid-tile>
+		<mat-grid-tile><b>Servizio 6</b></mat-grid-tile>
+		<mat-grid-tile><b>Servizio 7</b></mat-grid-tile>
+		<mat-grid-tile style="background: lightblue; color:black;"><b>Servizio 8</b></mat-grid-tile>
+	  </mat-grid-list>
+
+
+	
+<app-footer></app-footer>
+</body>

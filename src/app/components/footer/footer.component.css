@@ -1,0 +1,106 @@
+.cookie-settings-panel {
+  /* Stili del pannello dei cookie */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+  a{
+    cursor: pointer;
+  }
+  mat-toolbar{
+    color: white;
+    background-color: #3498db;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    margin: 0;
+  }
+
+  .mat-toolbar-row {
+    width: 100%;
+  }
+
+
+  .fa-solid {
+   font-size: large;
+   background-color:aqua;
+   padding: 10px;
+   position: fixed;
+   bottom: 10px;     
+   right: 10px; 
+   cursor: pointer;
+  }
+
+  .fa-solid:hover{
+    background-color: lightblue;
+  }
+ 
+  a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+  }
+
+  a:hover{
+    color: black;
+    text-decoration: none;
+  }
+
+  .cookie{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: end;
+    margin-right: 230px;
+  }
+
+  span{
+  margin-left: 230px;
+  }
+
+
+  @media only screen and (max-width: 1450px){
+
+  span{
+  margin:0px;
+  text-align: center;
+  align-items: center;
+  font-size: 1.2rem;
+  }
+
+  .cookie{
+    margin: 0px;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  }
+
+  @media only screen and (max-width: 1210px){
+
+  span{
+    margin:0px;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  .cookie{
+    margin-top:10px;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2rem;
+
+  }
+
+  }
