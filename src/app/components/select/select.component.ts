@@ -1,9 +1,9 @@
 // Nel tuo componente TypeScript (select.component.ts)
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Packer } from 'docx';
 import * as saveAs from 'file-saver';
 import { DocumentCreator } from 'src/app/base-generator';
-import { name1, name10, name11, name12, name13, name14, name15, name16, name17, name18, name19, name2, name20, name21, name22, name23, name24, name3, name4, name5, name6, name7, name8, name9, object1, object2, object3, sezione1, sezione2, sezione3, sezione4, sezione5, sezione6, sezione7, sezione8, } from "../../sezioni-data";
+import { name1, name10, name11, name12, name13, name14, name15, name16, name17, name18, name19, name2, name20, name21, name22, name23, name24, name3, name4, name5, name6, name7, name8, name9, object1, object10, object11, object12, object13, object2, object3,  object4, object5, object6,object7,object8,object9,sezione1, sezione2, sezione3, sezione4, sezione5, sezione6, sezione7, sezione8,  } from "../../sezioni-data";
 import { DatiService } from 'src/app/services/dati.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -78,6 +78,16 @@ export class SelectComponent implements OnInit {
   includiObject1:boolean = false;
   includiObject2:boolean = false;
   includiObject3:boolean = false;
+  includiObject4:boolean = false;
+  includiObject5:boolean = false;
+  includiObject6:boolean = false;
+  includiObject7:boolean = false;
+  includiObject8:boolean = false;
+  includiObject9:boolean = false;
+  includiObject10:boolean = false;
+  includiObject11:boolean = false;
+  includiObject12:boolean = false;
+  includiObject13:boolean = false;
 
   showCheckboxes = false;
   showMore = false;
@@ -121,83 +131,76 @@ export class SelectComponent implements OnInit {
  
   buttons: Button[] = [
     {
-      name: 'Sezione 1',
+      name: '1.2. METODOLOGIA DI INTERVENTO',
       isOpen: false,
       included: false,
       names: [
-        { name: 'Name 1', isOpen: false, included: false,contenuto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com-modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria-tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', objects: [{ name: 'Object 1', isOpen: false,contenuto: 'prova1', included: false,}, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 2', isOpen: false, included: false,contenuto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com-modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria-tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', objects: [{ name: 'Object 1',  isOpen: false,contenuto: 'prova2',included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 3', isOpen: false, included: false,contenuto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com-modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria-tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', objects: [{ name: 'Object 1',  isOpen: false,contenuto: 'prova3',included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'PREMESSA', isOpen: false, included: false,contenuto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com-modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria-tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', objects: [] },
+        { name: 'ANALISI FUNZIONALE', isOpen: false, included: false,contenuto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com-modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria-tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', objects: [{ name: 'IDENTIFICAZIONE E ANALISI DEI REQUISITI',  isOpen: false,contenuto: 'prova2',included: false }, { name: 'ANALISI TECNICA',isOpen: false,contenuto: 'prova', included: false }, { name: 'PIATTAFORMA TECNOLOGICA',isOpen: false,contenuto: 'prova', included: false }] },
+        { name: 'PROGETTAZIONE', isOpen: false, included: false,contenuto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com-modo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria-tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', objects: [{ name: 'ARCHITETTURA DELL’INFORMAZIONE',  isOpen: false,contenuto: 'prova3',included: false }, { name: 'MULTI-PAGINA',isOpen: false,contenuto: 'prova', included: false }, { name: 'PROGETTAZIONE TEMPLATE',isOpen: false,contenuto: 'prova', included: false }] }
       ]
     },
     {
-      name: 'Sezione 2',
+      name: '1.3. TEMPI DI CONSEGNA',
       isOpen: false,
       included: false,
       names: [
-        { name: 'Name 4', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1', isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 5', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1', isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 6', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'TEMPI DI CONSEGNA', isOpen: false,  included: false,contenuto: 'prova', objects: [] },
+      
       ]
     },
     {
-      name: 'Sezione 3',
+      name:   ' 1.4. CONDIVISIONE MATERIALE',
       isOpen: false,
       included: false,
       names: [
-        { name: 'Name 7', isOpen: false, included: false,contenuto: 'prova',  objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 8', isOpen: false, included: false,contenuto: 'prova',  objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova',included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 9', isOpen: false, included: false,contenuto: 'prova',  objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'LINGUE', isOpen: false, included: false,contenuto: 'prova',  objects: [] },
       ]
     },
     {
-      name: 'Sezione 4',
+      name: '2.1. CORPORATE WEBSITE USABILITY ANALYSIS',
       isOpen: false,
       included: false,
       names: [
-        { name: 'Name 10', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 11', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 12', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'SEO / SEM', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'STRUTTURA E CONTENUTI ESISTENTI',isOpen: false,contenuto: 'prova', included: false }, { name: 'KEYWORD DI BUSINESS: ANALISI A CAMPIONE',isOpen: false,contenuto: 'prova', included: false }, ] },
+        { name: 'MESSAGGIO', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'ARCHITETTURA DELL’INFORMAZIONE',isOpen: false,contenuto: 'prova', included: false }, ] },
+        { name: 'INFRASTRUTTURA IT', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'ANALYTICS',isOpen: false,contenuto: 'prova', included: false }, { name: 'DOMINI E LOCALIZZAZIONE',isOpen: false,contenuto: 'prova', included: false }, { name: 'HOSTING',isOpen: false,contenuto: 'prova', included: false }] }
       ]
     },
     {
-      name: 'Sezione 5',
+      name: '2.2. MAPPATURA KEYWORD DI BUSINESS',
       isOpen: false,
       included: false,
       names: [
-        { name: 'Name 13', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 3' ,isOpen: false,contenuto: 'prova', included: false}] },
-        { name: 'Name 14', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 15', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'MAPPATURA KEYWORD DI BUSINESS', isOpen: false,  included: false,contenuto: 'prova', objects: [] },
+        
       ]
     },
     {
-      name: 'Sezione 6',
+      name: '2.3. WEBSITE SEO ANALYSIS',
       isOpen: false,
       included: false,
       names: [
-        { name: 'Name 16', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova',included: false }, { name: 'Object 3' ,isOpen: false,contenuto: 'prova', included: false}] },
-        { name: 'Name 17', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 18', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'MAPPATURA KEYWORD DI BUSINESS', isOpen: false,  included: false,contenuto: 'prova', objects: [] },
+        { name: 'ANALISI TEMPLATE IN OTTICA SEO', isOpen: false,  included: false,contenuto: 'prova', objects: []},
+        { name: 'ANALISI STRUTTURA HTML IN OTTICA SEO', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'ANALISI KEYWORDS (BRAND E PRODOTTI)',isOpen: false,contenuto: 'prova', included: false }] }
       ]
     },
     {
-      name: 'Sezione 7',
+      name: '2.4. SEARCH ENGINE POSITIONING START-UP (SEP)',
       included: false,
       isOpen: false,
       names: [
-        { name: 'Name 19', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 20', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3' ,isOpen: false,contenuto: 'prova', included: false}] },
-        { name: 'Name 21', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 2',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false, contenuto: 'prova',included: false }] }
+        { name: 'SEARCH ENGINE POSITIONING START-UP (SEP)', isOpen: false, included: false,contenuto: 'prova', objects:[]   },
+      
       ]
     },
     {
-      name: 'Sezione 8',
+      name: '2.5. CONTINUOUS SEARCH ENGINE POSITIONING (SEP)',
       included: false,
       isOpen: false,
       names: [
-        { name: 'Name 22', isOpen: false, included: false,contenuto: 'prova',  objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false}, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 23', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] },
-        { name: 'Name 24', isOpen: false,  included: false,contenuto: 'prova', objects: [{ name: 'Object 1',isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 2' ,isOpen: false,contenuto: 'prova', included: false }, { name: 'Object 3',isOpen: false,contenuto: 'prova', included: false }] }
+        { name: 'CONTINUOUS SEARCH ENGINE POSITIONING (SEP)', isOpen: false, included: false,contenuto: 'prova', objects:[]   },
       ]
     },
     
@@ -207,19 +210,17 @@ export class SelectComponent implements OnInit {
   sections: any[] = [];
   names: any[] = [];
   objects: any[] = [];
+  contenuti2: string[] = [];
 
-  currentContent = {
-    title: '',
-    contenutoCompleto: '',
-    contenuto2: ''
-  };
-
+  
   
   currentButton: any;
   currentName: any;
   currentContent2: any;
+  nuovoContenuto: string = '';
+  contenuti: string[] = [];
 
-  constructor(private datiService: DatiService, private route: ActivatedRoute, private http: HttpClient){ }
+  constructor(private datiService: DatiService, private route: ActivatedRoute, private http: HttpClient, private changeDetectorRef: ChangeDetectorRef){ }
 
 
   ngOnInit(): void {
@@ -240,7 +241,7 @@ export class SelectComponent implements OnInit {
         defaultName.isOpen = true;
   
         // Filtra gli oggetti che hanno l'id 'Name 1'
-        const name1Data = data.filter(item => item.id === 'Name 1');
+        const name1Data = data.filter(item => item.id === 'PREMESSA');
   
         // Verifica che esista almeno un oggetto con id 'Name 1'
         if (name1Data.length > 0) {
@@ -252,7 +253,25 @@ export class SelectComponent implements OnInit {
           console.error("Errore: Nessun oggetto trovato con id 'Name 1'");
         }
       }
+       // Carica i dati dal localStorage all'inizio
+    const storedContenutoCompleto = localStorage.getItem('contenutoCompleto');
+    const storedContenuti = localStorage.getItem('contenuti');
+
+    if (storedContenutoCompleto) {
+      this.currentContent.contenutoCompleto = storedContenutoCompleto;
+    }
+
+    if (storedContenuti) {
+      this.contenuti = JSON.parse(storedContenuti);
+    }
     });
+
+    const savedData = localStorage.getItem('contenuti');
+  if (savedData) {
+    this.contenuti = JSON.parse(savedData);
+  }
+
+  
   }
   
   
@@ -354,8 +373,6 @@ export class SelectComponent implements OnInit {
       this.currentContent = { title: 'N/A', contenutoCompleto: 'N/A', contenuto2: 'N/A' };
     }
   }
-  
-  
   
 
 name1(){
@@ -513,7 +530,16 @@ oggetto24(){
     this.includiObject1 = this.selectAll;
     this.includiObject2 = this.selectAll;
     this.includiObject3 = this.selectAll;
-
+    this.includiObject4 = this.selectAll;
+    this.includiObject5 = this.selectAll;
+    this.includiObject6 = this.selectAll;
+    this.includiObject7 = this.selectAll;
+    this.includiObject8 = this.selectAll;
+    this.includiObject9 = this.selectAll;
+    this.includiObject10 = this.selectAll;
+    this.includiObject11 = this.selectAll;
+    this.includiObject12 = this.selectAll;
+    this.includiObject13 = this.selectAll;
     this.buttons.forEach(button => {
       button.names.forEach(nameItem => {
         nameItem.included = this.selectAll;
@@ -562,9 +588,29 @@ oggetto24(){
       this.includiObject1,
       this.includiObject2,
       this.includiObject3,
+      this.includiObject4,
+      this.includiObject5,
+      this.includiObject6,
+      this.includiObject7,
+      this.includiObject8,
+      this.includiObject9,
+      this.includiObject10,
+      this.includiObject11,
+      this.includiObject12,
+      this.includiObject13,
       object1,
       object2,
       object3,
+      object4,
+      object5,
+      object6,
+      object7,
+      object8,
+      object9,
+      object10,
+      object11,
+      object12,
+      object13,
       name1,
       name2,
       name3,
@@ -605,4 +651,42 @@ oggetto24(){
       console.log("Document created successfully");
     });
   }
+
+
+  
+  @Input() currentContent: any = { ...name1[0] }; 
+  @Output() contenutoAggiunto = new EventEmitter<string>();
+
+  aggiungiContenuto() {
+    this.currentContent.contenutoCompleto += ' ' + this.nuovoContenuto;
+    this.contenuti.push(this.nuovoContenuto);
+    this.contenutoAggiunto.emit(this.nuovoContenuto);
+    
+    this.nuovoContenuto = '';
+  
+    // Salva i dati aggiornati nel localStorage
+    this.salvaDatiNelLocalStorage();
+  
+    // Forza l'aggiornamento della vista
+    this.changeDetectorRef.detectChanges();
+  }
+
+  rimuoviContenuto(index: number) {
+    const contenutoRimosso = this.contenuti.splice(index, 1)[0];
+    this.currentContent.contenutoCompleto = this.currentContent.contenutoCompleto.replace(contenutoRimosso, '');
+    this.currentContent.contenutoCompleto = this.currentContent.contenutoCompleto.trim();
+
+    // Salva i dati aggiornati nel localStorage
+    this.salvaDatiNelLocalStorage();
+
+    // Forza l'aggiornamento della vista
+    this.changeDetectorRef.detectChanges();
+  }
+
+  private salvaDatiNelLocalStorage() {
+    localStorage.setItem('contenutoCompleto', this.currentContent.contenutoCompleto);
+    localStorage.setItem('contenuti', JSON.stringify(this.contenuti));
+  }
+  
+  
 }
