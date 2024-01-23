@@ -46,24 +46,41 @@
       </div>
     </div>
 
+    <div class="aggiungi-contenuto">
+      <h5>Aggiungi/Rimuovi Contenuto</h5>
+      <label for="nuovoContenuto">Nuovo Contenuto: </label>
+      <input type="text" id="nuovoContenuto" [(ngModel)]="nuovoContenuto" required>
+      <button (click)="aggiungiContenuto()">Aggiungi</button>
+
+      <div class="lista-contenuti">
+        <h5>Lista Contenuti</h5>
+        <ul> 
+        <li *ngFor="let contenuto of contenuti; let i= index">
+        {{contenuto}}
+        <button (click)="rimuoviContenuto(i)">Rimuovi</ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
     <!--Tutte le sottoSezioni-->
 
   <div class="col-md-2 ">
     <!-- <button class="menu-button2" (click)="ScegliSottoSezione()">Scegli sezione da esportare</button> -->
  
-
 <div class="checkbox-container"  >
 
   <div class="checkbox-container2" >
     <div class="trenta-2">
       <h5>Scegli sezione da esportare</h5>
-    <label class="label2"> <button class="menu-button2" (click)="name1()">Sezione1</button>
+    <label class="label2"> <button class="menu-button2" (click)="name1()">1.2. METODOLOGIA DI INTERVENTO</button>
       <input type="checkbox" [(ngModel)]="includeSezione1">
     </label>
     <div class="checkbox-container" *ngIf="showName1">
-      <label class="label2"> <button class="menu-button2" (click)="oggetto1()">Name1</button>
+      <label class="label2"> <button class="menu-button2" (click)="oggetto1()">PREMESSA</button>
       <input type="checkbox" [(ngModel)]="includiName1">
       </label>
+      <!--
       <div class="checkbox-container" *ngIf="showOggetto1">
           <label class="label2"> Object1
           <input type="checkbox" [(ngModel)]="includiObject1">
@@ -77,47 +94,49 @@
           <input type="checkbox" [(ngModel)]="includiObject3">
           </label>
       </div>
-      <label class="label2"> <button class="menu-button2" (click)="oggetto2()">Name2</button>
+      -->
+      <label class="label2"> <button class="menu-button2" (click)="oggetto2()">ANALISI FUNZIONALE</button>
       <input type="checkbox" [(ngModel)]="includiName2">
       </label>
       <div class="checkbox-container" *ngIf="showOggetto2">
-        <label class="label2"> Object1
+        <label class="label2"> IDENTIFICAZIONE E ANALISI DEI REQUISITI
         <input type="checkbox" [(ngModel)]="includiObject1">
         </label>
         
-        <label class="label2"> Object2
+        <label class="label2"> ANALISI TECNICA
         <input type="checkbox" [(ngModel)]="includiObject2">
         </label>
         
-        <label class="label2"> Object3
+        <label class="label2"> PIATTAFORMA TECNOLOGICA
         <input type="checkbox" [(ngModel)]="includiObject3">
         </label>
     </div>
-      <label class="label2"> <button class="menu-button2" (click)="oggetto3()">Name3</button>
+      <label class="label2"> <button class="menu-button2" (click)="oggetto3()">PROGETTAZIONE</button>
       <input type="checkbox" [(ngModel)]="includiName3">
       </label>
       <div class="checkbox-container" *ngIf="showOggetto3">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
+        <label class="label2"> ARCHITETTURA DELL’INFORMAZIONE
+        <input type="checkbox" [(ngModel)]="includiObject4">
         </label>
         
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
+        <label class="label2"> MULTI-PAGINA
+        <input type="checkbox" [(ngModel)]="includiObject5">
         </label>
         
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
+        <label class="label2"> PROGETTAZIONE TEMPLATE
+        <input type="checkbox" [(ngModel)]="includiObject6">
         </label>
     </div>
     </div>
 
-    <label class="label2"> <button class="menu-button2" (click)="name2()">Sezione2</button>
+    <label class="label2"> <button class="menu-button2" (click)="name2()">1.3. TEMPI DI CONSEGNA</button>
       <input type="checkbox" [(ngModel)]="includeSezione2">
     </label>
     <div class="checkbox-container" *ngIf="showName2">
-      <label class="label2">  <button class="menu-button2" (click)="oggetto4()">Name4</button>
+      <label class="label2">  <button class="menu-button2" (click)="oggetto4()">TEMPI DI CONSEGNA</button>
       <input type="checkbox" [(ngModel)]="includiName4">
       </label>
+      <!--
       <div class="checkbox-container" *ngIf="showOggetto4">
         <label class="label2"> Object1
         <input type="checkbox" [(ngModel)]="includiObject1">
@@ -165,15 +184,17 @@
         <input type="checkbox" [(ngModel)]="includiObject3">
         </label>
     </div>
+    -->
     </div>
 
-    <label class="label2"> <button class="menu-button2" (click)="name3()">Sezione3</button>
+    <label class="label2"> <button class="menu-button2" (click)="name3()">1.4. CONDIVISIONE MATERIALE</button>
       <input type="checkbox" [(ngModel)]="includeSezione3">
     </label>
     <div class="checkbox-container" *ngIf="showName3">
-        <label class="label2"> <button class="menu-button2" (click)="oggetto7()">Name7</button>
+        <label class="label2"> <button class="menu-button2" (click)="oggetto7()">LINGUE</button>
         <input type="checkbox" [(ngModel)]="includiName7">
         </label>
+         <!--
         <div class="checkbox-container" *ngIf="showOggetto7">
           <label class="label2"> Object1
           <input type="checkbox" [(ngModel)]="includiObject1">
@@ -221,286 +242,109 @@
           <input type="checkbox" [(ngModel)]="includiObject3">
           </label>
     </div>
+  -->
     </div>
 
-    <label class="label2"> <button class="menu-button2" (click)="name4()">Sezione4</button>
+    <label class="label2"> <button class="menu-button2" (click)="name4()">2.1. CORPORATE WEBSITE USABILITY ANALYSIS</button>
       <input type="checkbox" [(ngModel)]="includeSezione4">
     </label>
     <div class="checkbox-container" *ngIf="showName4">
-        <label class="label2"> <button class="menu-button2" (click)="oggetto10()">Name10</button>
+        <label class="label2"> <button class="menu-button2" (click)="oggetto10()">SEO / SEM</button>
         <input type="checkbox" [(ngModel)]="includiName10">
         </label>
         <div class="checkbox-container" *ngIf="showOggetto10">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
+          <label class="label2"> STRUTTURA E CONTENUTI ESISTENTI
+          <input type="checkbox" [(ngModel)]="includiObject7">
           </label>
           
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
+          <label class="label2"> KEYWORD DI BUSINESS: ANALISI A CAMPIONE
+          <input type="checkbox" [(ngModel)]="includiObject8">
           </label>
           
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
+          
     </div>
 
-        <label class="label2"><button class="menu-button2" (click)="oggetto11()">Name11</button>
-        <input type="checkbox" [(ngModel)]="includiName11">
+        <label class="label2"><button class="menu-button2" (click)="oggetto11()">MESSAGGIO</button>
+        <input type="checkbox" [(ngModel)]="includiName9">
         </label>
         <div class="checkbox-container" *ngIf="showOggetto11">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
+          <label class="label2"> ARCHITETTURA DELL’INFORMAZIONE
+          <input type="checkbox" [(ngModel)]="includiObject9">
           </label>
           
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
     </div>
 
-        <label class="label2"> <button class="menu-button2" (click)="oggetto12()">Name12</button>
+        <label class="label2"> <button class="menu-button2" (click)="oggetto12()">INFRASTRUTTURA IT</button>
         <input type="checkbox" [(ngModel)]="includiName12">
         </label>
         <div class="checkbox-container" *ngIf="showOggetto12">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
+          <label class="label2"> ANALYTICS
+          <input type="checkbox" [(ngModel)]="includiObject10">
           </label>
           
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
+          <label class="label2"> DOMINI E LOCALIZZAZIONE
+          <input type="checkbox" [(ngModel)]="includiObject11">
           </label>
           
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
+          <label class="label2"> HOSTING
+          <input type="checkbox" [(ngModel)]="includiObject12">
           </label>
       </div>
       </div>
 
-     <label class="label2"> <button class="menu-button2" (click)="name5()">Sezione5</button>
+     <label class="label2"> <button class="menu-button2" (click)="name5()">2.2. MAPPATURA KEYWORD DI BUSINESS</button>
       <input type="checkbox" [(ngModel)]="includeSezione5">
     </label>
     <div class="checkbox-container" *ngIf="showName5">
-      <label class="label2"> <button class="menu-button2" (click)="oggetto13()">Name13</button>
+      <label class="label2"> <button class="menu-button2" (click)="oggetto13()">MAPPATURA KEYWORD DI BUSINESS</button>
       <input type="checkbox" [(ngModel)]="includiName13">
       </label>
-      <div class="checkbox-container" *ngIf="showOggetto13">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
-        </label>
-        
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
-        </label>
-        
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
-        </label>
-    </div>
-
-      <label class="label2"> <button class="menu-button2" (click)="oggetto14()">Name14</button>
-      <input type="checkbox" [(ngModel)]="includiName14">
-      </label>
-      <div class="checkbox-container" *ngIf="showOggetto14">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
-        </label>
-        
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
-        </label>
-        
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
-        </label>
-    </div>
-
-      <label class="label2"> <button class="menu-button2" (click)="oggetto15()">Name15</button>
-      <input type="checkbox" [(ngModel)]="includiName15">
-      </label>
-      <div class="checkbox-container" *ngIf="showOggetto15">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
-        </label>
-        
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
-        </label>
-        
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
-        </label>
-    </div>
+  
 </div>
 
-    <label class="label2"> <button class="menu-button2" (click)="name6()">Sezione6</button>
+    <label class="label2"> <button class="menu-button2" (click)="name6()">2.3. WEBSITE SEO ANALYSIS</button>
       <input type="checkbox" [(ngModel)]="includeSezione6">
     </label>
     <div class="checkbox-container" *ngIf="showName6">
-      <label class="label2"> <button class="menu-button2" (click)="oggetto16()">Name16</button>
+      <label class="label2"> <button class="menu-button2" (click)="oggetto16()">MAPPATURA KEYWORD DI BUSINESS</button>
       <input type="checkbox" [(ngModel)]="includiName16">
       </label>
-      <div class="checkbox-container" *ngIf="showOggetto16">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
-        </label>
-        
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
-        </label>
-        
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
-        </label>
-    </div>
+     
       
-      <label class="label2"> <button class="menu-button2" (click)="oggetto17()">Name17</button>
+      <label class="label2"> <button class="menu-button2" (click)="oggetto17()">ANALISI TEMPLATE IN OTTICA SEO</button>
       <input type="checkbox" [(ngModel)]="includiName17">
       </label>
-      <div class="checkbox-container" *ngIf="showOggetto17">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
-        </label>
-        
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
-        </label>
-        
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
-        </label>
-    </div>
+   
       
-      <label class="label2"> <button class="menu-button2" (click)="oggetto18()">Name18</button>
+      <label class="label2"> <button class="menu-button2" (click)="oggetto18()">ANALISI STRUTTURA HTML IN OTTICA SEO</button>
       <input type="checkbox" [(ngModel)]="includiName18">
       </label>
       <div class="checkbox-container" *ngIf="showOggetto18">
-        <label class="label2"> Object1
-        <input type="checkbox" [(ngModel)]="includiObject1">
+        <label class="label2"> ANALISI KEYWORDS (BRAND E PRODOTTI)
+        <input type="checkbox" [(ngModel)]="includiObject13">
         </label>
         
-        <label class="label2"> Object2
-        <input type="checkbox" [(ngModel)]="includiObject2">
-        </label>
-        
-        <label class="label2"> Object3
-        <input type="checkbox" [(ngModel)]="includiObject3">
-        </label>
     </div>
     </div>
 
-    <label class="label2"> <button class="menu-button2" (click)="name7()">Sezione7</button>
+    <label class="label2"> <button class="menu-button2" (click)="name7()">2.4. SEARCH ENGINE POSITIONING START-UP (SEP)</button>
       <input type="checkbox" [(ngModel)]="includeSezione7">
     </label>
     <div class="checkbox-container" *ngIf="showName7">
-        <label class="label2"> <button class="menu-button2" (click)="oggetto19()">Name19</button>
+        <label class="label2"> <button class="menu-button2" (click)="oggetto19()">SEARCH ENGINE POSITIONING START-UP (SEP)</button>
         <input type="checkbox" [(ngModel)]="includiName19">
         </label>
-        <div class="checkbox-container" *ngIf="showOggetto19">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
-          </label>
-          
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
-      </div>
-
-        <label class="label2">  <button class="menu-button2" (click)="oggetto20()">Name20</button>
-        <input type="checkbox" [(ngModel)]="includiName20">
-        </label>
-        <div class="checkbox-container" *ngIf="showOggetto20">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
-          </label>
-          
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
-      </div>
-
-        <label class="label2"> <button class="menu-button2" (click)="oggetto21()">Name21</button>
-        <input type="checkbox" [(ngModel)]="includiName21">
-        </label>
-        <div class="checkbox-container" *ngIf="showOggetto21">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
-          </label>
-          
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
-    </div>
+      
     </div>
 
-    <label class="label2"> <button class="menu-button2" (click)="name8()">Sezione8</button>
+    <label class="label2"> <button class="menu-button2" (click)="name8()">2.5. CONTINUOUS SEARCH ENGINE POSITIONING (SEP)</button>
       <input type="checkbox" [(ngModel)]="includeSezione8">
     </label>
     <div class="checkbox-container" *ngIf="showName8">
-        <label class="label2"> <button class="menu-button2" (click)="oggetto22()">Name22</button>
+        <label class="label2"> <button class="menu-button2" (click)="oggetto22()">CONTINUOUS SEARCH ENGINE POSITIONING (SEP)</button>
         <input type="checkbox" [(ngModel)]="includiName22">
         </label>
-        <div class="checkbox-container" *ngIf="showOggetto22">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
-          </label>
-          
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
-    </div>
-
-        <label class="label2"> <button class="menu-button2" (click)="oggetto23()">Name23</button>
-        <input type="checkbox" [(ngModel)]="includiName23">
-        </label>
-        <div class="checkbox-container" *ngIf="showOggetto23">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
-          </label>
-          
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
-    </div>
-
-        <label class="label2">  <button class="menu-button2" (click)="oggetto24()">Name24</button>
-        <input type="checkbox" [(ngModel)]="includiName24">
-        </label>
-        <div class="checkbox-container" *ngIf="showOggetto24">
-          <label class="label2"> Object1
-          <input type="checkbox" [(ngModel)]="includiObject1">
-          </label>
-          
-          <label class="label2"> Object2
-          <input type="checkbox" [(ngModel)]="includiObject2">
-          </label>
-          
-          <label class="label2"> Object3
-          <input type="checkbox" [(ngModel)]="includiObject3">
-          </label>
-    </div>
+      
 </div>
 <label class="label2"> <button class="menu-button2"> 
  Seleziona tutto
@@ -515,7 +359,5 @@
 
 </div>
   </div>
-
-
 
 </div>
